@@ -152,7 +152,9 @@ public class PrintManager {
 
     public void append64(String base64) {
         try {
-            getPrintRaw().append(Base64.decode(base64));
+            byte[] printData = Base64.decode(base64);
+            printData = java.util.Base64.getDecoder().decode(base64);
+            getPrintRaw().append(printData);
         } catch (IOException e) {
             set(e);
         }

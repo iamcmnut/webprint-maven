@@ -57,10 +57,11 @@ public class Main extends JFrame {
     }
     
     private final JFrame settingFrame;
+    private ImageIcon icon;
     public Main(){
         acl = new AccessControl();
         this.setName("WebPrint");
-        ImageIcon icon = new ImageIcon("img/webprinticonsmall.png");
+        icon = new ImageIcon("img/webprinticonsmall.png");
         this.setIconImage(icon.getImage());
         JPanel rootPanel = (JPanel) this.getRootPane().getContentPane();
         rootPanel.setVisible(true);
@@ -162,7 +163,9 @@ public class Main extends JFrame {
                 }
             }));
 
-            tray.setImage(Main.class.getResource("img/webprinticonsmall.png"));
+            tray.setImage(icon.getImage());
+
+            // tray.setImage(Main.class.getResource("img/webprinticonsmall.png"));
             
             tray.setEnabled(true);
             
